@@ -1,0 +1,9 @@
+# Dependencies for InterwikiPreviewPlugin
+Foswiki::Plugins::JQueryPlugin,>=0.5,perl,Required.
+Cache::FileCache,>=1.05,cpan,Required.
+XML::Parser,>=2.36,cpan,Optional.
+JSON,>=2.0,cpan,Optional.
+Crypt::SSLeay,>=0.57,cpan,Optional.
+ONLYIF ( $Foswiki::Plugins::VERSION < 2.1)
+Foswiki::Plugins::ZonePlugin,>=1.0,perl,Required. required for Foswiki < 1.1
+

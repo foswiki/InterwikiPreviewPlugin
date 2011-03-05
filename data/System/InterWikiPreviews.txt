@@ -1,0 +1,14 @@
+---++ <nop>Inter-Wiki Preview Rules
+
+<noautolink>
+
+| *Alias:* | *Data Source URL:* | *Data Format:* | *Info Format:* | *Reload Every:* |
+| KernelBug | https://bugzilla.kernel.org/show_bug.cgi?ctype=xml&id= |  XML  | "%INTERWIKIPREVIEWFIELD{source="short_desc" width="30"}%" =%INTERWIKIPREVIEWFIELD{source="version" width="10"}%= _%INTERWIKIPREVIEWFIELD{source="product"}%_ |  0  |
+
+</noautolink>
+
+*Note:* This topic configures the InterwikiPreviewPlugin.
+
+---
+*Related Topics:* [[%SYSTEMWEB%.Plugins][Plugins]], UserDocumentationCategory, AdminDocumentationCategory
+

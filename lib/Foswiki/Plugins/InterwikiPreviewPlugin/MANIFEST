@@ -1,0 +1,10 @@
+# Release manifest for InterwikiPreviewPlugin
+data/System/InterwikiPreviewPlugin.txt 0644 Documentation
+data/System/InterWikiPreviews.txt 0644 Documentation
+lib/Foswiki/Plugins/InterwikiPreviewPlugin.pm 0644 Perl module
+lib/Foswiki/Plugins/InterwikiPreviewPlugin/Query.pm 0644 Perl module
+lib/Foswiki/Plugins/InterwikiPreviewPlugin/Rule.pm 0644 Perl module
+lib/Foswiki/Plugins/InterwikiPreviewPlugin/Config.spec 0444 Settings
+pub/System/InterwikiPreviewPlugin/query.js 0644 Javascript
+pub/System/InterwikiPreviewPlugin/MochiKit.js 0644 Javascript
+

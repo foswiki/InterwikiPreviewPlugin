@@ -1,0 +1,69 @@
+---+!! !InterwikiPreviewPlugin
+<!--
+One line description, required for extensions repository catalog.
+BuildContrib will fill in the SHORTDESCRIPTION with the value of
+$SHORTDESCRIPTION from the .pm module, or you can redefine it here if you
+prefer.
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+%SHORTDESCRIPTION%
+
+%TOC%
+
+---++ Usage
+
+   * Extra information, as specified in InterWikiPreviews, is loaded asynchronously and appended to ==ExternalSite:Page== links.
+   * Add and edit aliases in InterWikiPreviews.
+   * Each entry must be of format: %BR% ==| External site alias | Data URL | Data format | Info format | Reload Every |==
+   * Site aliases must start with an upper case letter and may contain alphanumeric letters.
+   * data is retrieved from the URL, which may contain =$page= variables.
+   * The data format may be =XML= or =JSON=
+   * Info format is appended to any ==ExternalSite:Page== , with any =%<nop>INTERWIKIPREVIEWFIELD{source="data_source" width="initial_width"}%= fields replaced by values extracted from the retrieved XML or JSON data.
+   * The information will be loaded only once if =Reload Every= is 0. Otherwise =Reload Every= is a periodic reload interval in seconds.
+
+---++ Examples
+
+Given the following in InterWikiPreviews:
+
+| *Alias:* | *Data Source URL:* | *Data Format:* | *Info Format:* | *Reload Every:* |
+| KernelBug | https://bugzilla.kernel.org/show_bug.cgi?ctype=xml&id= |  XML  | "%<nop>INTERWIKIPREVIEWFIELD{source="short_desc" width="30"}%" =%<nop>INTERWIKIPREVIEWFIELD{source="version" width="10"}%= _%<nop>INTERWIKIPREVIEWFIELD{source="product"}%_ |  0  |
+
+Then ==<nop>KernelBug:12345== will render as:
+
+   <nop>KernelBug:12345 "------------------------------" =----------= _-_
+
+Once =<nop>http://bugzilla.kernel.org/show_bug.cgi?ctype=xml&id=12345= has been retrieved, this will be replaced by:
+
+   <nop>KernelBug:12345 "X on Intel 965GM hangs on console switch if compositing is enabled" =2.5= _Drivers_
+
+(Assuming that the metadata of that bug hasn't changed.)
+
+The data retrieved from =<nop>http://bugzilla.kernel.org/show_bug.cgi?ctype=xml&id=1= will be cached in the plugin's work area.
+The next time ==<nop>KernelBug:1== is rendered, it will contain the cached data.
+(The cache validity period is the same as the reload interval, or a configurable default.)
+
+
+KernelBug:12345
+
+---++ Installation Instructions
+
+%$INSTALL_INSTRUCTIONS%
+
+   * *Test:* If the Plugin is correctly installed, this should render as described above: <blockquote> KernelBug:12345 </blockquote>
+
+---++ Authentication Requirements
+In order for %WEB%.%TOPIC% to retrieve data from the source URL, the =rest= script should be removed from ={AuthScripts}= in [[%SCRIPTURLPATH{"configure"}%][configure]].
+
+---++ Info
+
+|  Author(s): | Main.IanBygrave |
+|  Copyright: | &copy; |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home page: | http://foswiki.org/bin/view/Extensions/InterwikiPreviewPlugin |
+|  Support: | http://foswiki.org/bin/view/Support/InterwikiPreviewPlugin |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->
